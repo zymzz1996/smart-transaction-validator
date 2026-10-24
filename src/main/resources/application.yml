@@ -1,0 +1,30 @@
+server:
+  port: 8080
+app:
+  graph:
+    enabled: ${APP_GRAPH_ENABLED:false}
+  vector:
+    enabled: ${APP_VECTOR_ENABLED:false}
+spring:
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:demo-key}
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.1
+      embedding:
+        options:
+          model: text-embedding-3-small
+  datasource:
+    url: ${PG_URL:jdbc:postgresql://localhost:5432/smart_validator}
+    username: ${PG_USER:postgres}
+    password: ${PG_PASSWORD:postgres}
+  neo4j:
+    uri: ${NEO4J_URI:bolt://localhost:7687}
+    authentication:
+      username: ${NEO4J_USER:neo4j}
+      password: ${NEO4J_PASSWORD:neo4j123}
+logging:
+  level:
+    com.yourname.validator: DEBUG
